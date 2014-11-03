@@ -5,6 +5,8 @@
 var mainController = function ($scope) {
     var model = $scope.model = {};
     // var model.chartData;
+    model.filterDatelimit = new Date("11/30/2014") ;
+
 
     var init = function(){
       model.chartData = new google.visualization.DataTable();
@@ -30,12 +32,15 @@ var mainController = function ($scope) {
         ["Deadlines", "KIA SSO app", new Date("12/8/2014"), new Date("12/9/2014")],
         ["Sprint-story", "KIA SSO app", new Date("11/10/2014"), new Date("11/21/2014")],
         ["Holidays", "Sarit PTO", new Date("11/27/2014"), new Date("11/27/2014")],
-
         ["Holidays", "MArge Holiday", new Date("11/24/2014"), new Date("11/25/2014")],
         ["Holidays", "HQ Holiday", new Date("11/27/2014"), new Date("11/29/2014")]
 
         ]);
 
+
+
+    model.chartDataView = new google.visualization.DataView(model.chartData);
+    model.chartDataView.setRows(model.chartDataView.getFilteredRows([{column: 2014, maxValue: model.filterDatelimit }]));
     // var chart = new google.visualization.Timeline(document.getElementById('chartdiv'));
     //   chart.draw($scope.model.chartData);
         // $http.get("data/data.json").success(function(jsonData){

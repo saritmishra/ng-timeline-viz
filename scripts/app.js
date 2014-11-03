@@ -15,7 +15,7 @@ angular
 
         $routeProvider
             .when("/", {
-                templateUrl: "/",
+                templateUrl: "index.html",
                 controller: "mainController"
             })
             .otherwise({
