@@ -8,7 +8,7 @@ var mainController = function ($scope) {
     model.filterDatelimit = new Date("11/30/2014") ;
 
     var query = new google.visualization.Query(
-        "https://docs.google.com/a/medallia.com/spreadsheets/d/1SE11mcFZZfG8BE7m-81xr21MWz_RiP7dog4soHnPRCM/edit?range=A1:D4");
+        "https://docs.google.com/a/medallia.com/spreadsheets/d/1SE11mcFZZfG8BE7m-81xr21MWz_RiP7dog4soHnPRCM/edit?range=A1:D500");
     query.send(handleQueryResponse);
 
     function handleQueryResponse(response) {
@@ -21,14 +21,6 @@ var mainController = function ($scope) {
       var chart = new google.visualization.Timeline(document.getElementById('g-chart'));
       chart.draw(model.chartDataTable, { height: 500, width: 1200 });
     }
-    var init = function(){
-      // model.chartData = new google.visualization.DataTable();
-      // model.chartData.addColumn({ type: 'string', id: 'Type' });
-      // model.chartData.addColumn({ type: 'string', id: 'Name' });
-      // model.chartData.addColumn({ type: 'date', id: 'Start' });
-      // model.chartData.addColumn({ type: 'date', id: 'End' });
-
-      // model.chartData.addRows([
       //   ["Sprints", "Sprint: 10/27 - 11/7", new Date("10/27/2014"), new Date("11/7/2014")],
       //   ["Sprints", "Sprint: 11/10 - 11/21", new Date("11/10/2014"), new Date("11/21/2014")],
       //   ["Sprints", "Sprint: 11/24 - 12/5", new Date("11/24/2014"), new Date("12/5/2014")],
@@ -47,16 +39,9 @@ var mainController = function ($scope) {
       //   ["Holidays", "MArge Holiday", new Date("11/24/2014"), new Date("11/25/2014")],
       //   ["Holidays", "HQ Holiday", new Date("11/27/2014"), new Date("11/29/2014")]
 
-      //   ]);
-
     // Creating a data-view to restrict the data that is shown
     // model.chartDataView = new google.visualization.DataView(model.chartData);
     // model.chartDataView.setRows(model.chartDataView.getFilteredRows([{column: 2, maxValue: model.filterDatelimit }]));
-
-    // *** Below part has been moved to the gChart directive ***
-    // var chart = new google.visualization.Timeline(document.getElementById('chartdiv'));
-    //   chart.draw($scope.model.chartData);
-    }; init();
 
 };
 
